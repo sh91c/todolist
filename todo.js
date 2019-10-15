@@ -4,8 +4,9 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = 'todos'; // 2.1. localStorage의 키 이름을 TODOS_LS로 작성
 
-const toDos = []; // 9. to do를 저장해야하는데, 이 리스트는 여러개가 출력 될 수 있음. 각 to do를 배열로 만들어 주자.
+let toDos = []; // 9. to do를 저장해야하는데, 이 리스트는 여러개가 출력 될 수 있음. 각 to do를 배열로 만들어 주자.
 // 해야할 일을 생성할 때마다 배열 todos에 추가되도록 할 것.
+// 12.2.2. const에서 let으로 바꾼 이유는 cleanToDos의 값을 toDos에 재할당하기 위해.
 
 // 12.1. HTML에서 todo 삭제 구현하기
 function deleteToDo(event) {
@@ -14,6 +15,16 @@ function deleteToDo(event) {
     const btn = event.target;
     const li = btn.parentNode;
     toDoList.removeChild(li);
+
+    // 12.2.1 filter매서드를 이용해 toDos 배열의 각 원소에 대해 비교를 하고 return할 수 있도록 구현
+    const cleanToDos = toDos.filter(function (toDo) {
+        return toDo.id !== parseInt(li.id); // parseInt는 String인 숫자를 정수형태로 변환.
+        // toDo가 가진 기존의 id 값과 삭제된 li의 id가 다르면 toDos 배열의 각 원소가
+        // cleanToDos에 저장됨.
+    });
+    // console.log(cleanToDos);
+    toDos = cleanToDos;
+    saveToDos();
 }
 
 // 10. localStorage에 toDos를 가져와서 저장하는 함수 구현하기.
