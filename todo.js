@@ -7,6 +7,15 @@ const TODOS_LS = 'todos'; // 2.1. localStorage의 키 이름을 TODOS_LS로 작�
 const toDos = []; // 9. to do를 저장해야하는데, 이 리스트는 여러개가 출력 될 수 있음. 각 to do를 배열로 만들어 주자.
 // 해야할 일을 생성할 때마다 배열 todos에 추가되도록 할 것.
 
+// 12.1. HTML에서 todo 삭제 구현하기
+function deleteToDo(event) {
+    // console.log(event.target.parentNode); 해당 버튼이 어떤 id를 가진 li인지 알 수 있도록 확인
+    // delete child element mdn 참고.
+    const btn = event.target;
+    const li = btn.parentNode;
+    toDoList.removeChild(li);
+}
+
 // 10. localStorage에 toDos를 가져와서 저장하는 함수 구현하기.
 function saveToDos() {
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
@@ -24,6 +33,9 @@ function printToDo(text) {
     toDoList.appendChild(li);
     li.appendChild(span);
     li.appendChild(delBtn);
+
+    // 12.1.1 delBtn에 이벤트 추가하기(삭제하기 위한)
+    delBtn.addEventListener("click", deleteToDo);
 
     // 9.2. (9)에서 toDos의 배열에 들어가게 되는데 배열은 0번째 원소부터 카운트 되니, id값을 1 증가 시켜 1부터 시작하도록 하자.
     const newId = toDos.length + 1; // 유사 배열 객체
