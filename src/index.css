@@ -2,6 +2,9 @@
 
 * {
     box-sizing: border-box;
+    color: whitesmoke;
+    text-shadow: 0px 0px 20px black;
+
 }
 
 body {
@@ -9,15 +12,20 @@ body {
 }
 
 .clock {
-    color: whitesmoke;
-    /* text-shadow: 0px 0px 10px #2c3e50;
-    font-size: 22px;
-    border: 1px dashed black;
-
+    font-family: 'Neucha', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 24px;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+}
 
-    margin-top: 20px; */
+.weather {
+    font-family: 'Neucha', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .form,
@@ -26,17 +34,145 @@ body {
 }
 
 .showing {
-    display: block;
-    color: whitesmoke;
-    /* text-shadow: 0px 0px 10px #2c3e50;
-    font-size: 42px;
-
+    font-family: 'Neucha', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
-    justify-content: space-around;
-    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 250%;
+    margin-top: 50px;
+}
 
-    border: 1px dashed black;
-    margin: 100px; */
+.form__nameStyle {
+    font-family: 'Neucha', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 72px;
+    width: 175px;
+    font-size: 50%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid white;
+    animation: movingPara 4s ease infinite;
+}
+
+@keyframes movingPara {
+    0% {
+        border-color: yellow;
+    }
+
+    20% {
+        border-color: green;
+    }
+
+    40% {
+        border-color: blue;
+    }
+
+    60% {
+        border-color: purple;
+    }
+
+    80% {
+        border-color: red;
+    }
+
+    100% {
+        border-color: yellow;
+    }
+
+}
+
+.form__toDoStyle {
+    font-family: 'Neucha', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 20px;
+    width: 175px;
+    font-size: 50%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid white;
+    animation: movingPara 4s ease infinite;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: whitesmoke;
+    text-align: center;
+}
+
+.toDoList {
+    /* border: 3px dashed black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+li {
+    font-family: 'Neucha', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: inherit;
+    align-items: center;
+    /* border: 1px dashed black; */
+    font-size: 200%;
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 1px white;
+    padding: 10px;
+}
+
+span {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 50%;
+}
+
+@keyframes fontColor {
+    0% {
+        border-color: yellow;
+        color: yellow;
+    }
+
+    20% {
+        border-color: green;
+        color: green;
+    }
+
+    40% {
+        border-color: blue;
+        color: blue;
+    }
+
+    60% {
+        border-color: purple;
+        color: purple;
+    }
+
+    80% {
+        border-color: red;
+        color: red;
+    }
+
+    100% {
+        border-color: yellow;
+        color: yellow;
+    }
+}
+
+button {
+    width: 20px;
+    font-size: 40%;
+    border: 1px solid black;
+    border-radius: 50px;
+    /* margin-top: px; */
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    animation: fontColor 4s ease infinite;
 }
 
 @keyframes fadeIn {
