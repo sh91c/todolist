@@ -35,13 +35,21 @@ function saveToDos() {
 }
 
 function printToDo(text) {
+    const main = new Date();
+    const hour = main.getHours();
+    const min = main.getMinutes();
+    const sec = main.getSeconds();
+
     // 8. * 입력 받은 to do를 리스트로 출력하기 *
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
-    const span = document.createElement("span");
+    const span = document.createElement("p");
+    const timeline = document.createElement("span"); // 타임라인
+    timeline.innerText = `(${hour < 10 ? `0${hour}` : hour}:${min < 10 ? `0${min}`:min}:${sec < 10 ? `0${sec}` : sec})`;
     delBtn.innerText = "✔︎";
     span.innerText = text;
     toDoList.appendChild(li);
+    li.appendChild(timeline); // 타임라인
     li.appendChild(span);
     li.appendChild(delBtn);
 
